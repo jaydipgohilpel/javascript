@@ -364,6 +364,48 @@
     <h2>30-06-2022</h2>
     <hr>
     <hr><br>
+    <script>
+        {
+            class myCar {
+                constructor(n) {
+                    this.car_name = n;
+                }
+                parents_method() {
+                    return " car name is " + this.car_name;
+                }
+            }
+            class carmodel extends myCar {
+                constructor(n, m) {
+                    super(n);
+                    this.model_name = m;
+                }
+                dispay() {
+                    return "this car model is " + this.model_name;
+                }
+            }
+            let car2 = new carmodel(" BMW ", 2022);
+            document.write(car2.parents_method() + " " + car2.dispay());
+            console.log("class mycar display() ", car2.dispay());
+
+        }
+        {
+            class Car {
+                constructor(brand) {
+                    this.carname = brand;
+                }
+                get cnam() {
+                    return this.carname;
+                }
+                // set cnam(x) {
+                // this.carname = x;
+                // }
+            }    
+
+            let myCar = new Car("Ford");
+
+           document.write( "<br>"+myCar.cnam);
+        }
+    </script>
 
 </body>
 
