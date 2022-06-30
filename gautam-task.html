@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        const array1 = [
+            { id: 3, name: "jaydip", lang: "javascript" },
+            { id: 1, name: "gautam", lang: "python" },
+            { id: 2, name: "jay", lang: "node" },
+            { id: 4, name: "harshil", lang: "python" }
+        ];
+        const array2 = array1.map(myFunction);
+        console.log("gsutam", array2);
+        // document.write(array2.name + "," + array2.lang);
+        function myFunction(value, index, array) {
+            if (value.name == "gautam") {
+                // console.log(index);
+                value.lang = "php";
+            }
+            return value;
+        }
+        console.log("array1", array1);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

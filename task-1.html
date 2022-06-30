@@ -1,0 +1,73 @@
+<script>
+    //array sum
+    let A1 = [1, 2, 3, 4];
+    console.log("sum of two digit is : " + sum(A1)); //function call
+    function sum(array) //function
+    {
+        let sum = 0;
+        for (let t = 0; t < array.length; t++) {
+            sum += array[t];
+        }
+        return sum;
+    }
+</script>
+<script>
+    // string concat
+    const s = ['a', 'B', 'C'];
+    console.log("concatenate string is : " + concat_string(s)); //function call
+    function concat_string(string_array) //function
+    {
+        return string_array.join("");
+    } 
+</script>
+<script>
+    //odd even
+    let A2 = [1, 2, 3, 4];
+    console.log("odd no : " + odd(A2)); //odd function call
+    console.log("even no : " + even(A2)); //evenfunction call
+    function odd(array) //function
+    {
+        const odd_no = [];
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] % 2 != 0) {
+                odd_no.push(array[i]);
+            }
+        }
+        return odd_no;
+    }
+    function even(array) //function
+    {
+        const even_no = [];
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                even_no.push(array[i]);
+            }
+        }
+        return even_no;
+    }
+</script>
+<script>
+    //duplicate counts
+    let A3 = [1, 2, 2, 4, 3, 1, 2, 4];
+    console.log("duplicate count is : \n" + dup_no_find(A3));
+    function dup_no_find(array) //function
+    {
+        const rep_no = [];
+        for (let i = 0; i < array.length; i++) {
+            let count = 0;
+            for (let j = 0; j <= array.length; j++) {
+                if (array[i] == array[j]) {
+                    count += 1;
+                }
+            }
+            if (count > 1) {
+                rep_no[i] = array[i] + ":" + count + "\n";
+            }
+        }
+        var unique = rep_no.filter(remove_dup);
+        return (unique.join(""));
+    }
+    function remove_dup(value, index, self) {
+        return self.indexOf(value) === index;
+    }
+</script>

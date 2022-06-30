@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>index2.html-23-06-2022</h2>
+    <hr>
+    <hr><br>
+    set in javascript <br>
+    <script>
+        // Create a Set
+        const letters = new Set();
+
+        // Create Variables
+        const a = "a";
+        const b = "b";
+        const c = "c";
+
+        // Add the Variables to the Set
+        letters.add(a);
+        letters.add(b);
+        letters.add(c);
+
+        // Display set.size
+        console.log("set");
+        for (let x of letters) {
+            document.write(x + ", ");
+            console.log(x);
+        }
+        document.write("<br>");
+    </script>
+    <br>
+    map in javascript <br>
+    <script>
+        // Create a Map
+        const fruits = new Map([
+            ["apples", 500],
+            ["bananas", 300],
+            ["oranges", 200]
+        ]);
+        fruits.set("name", "jaydip")
+        document.write(fruits.get("name"));
+    </script>
+    <script>
+        // "use strict";
+
+        {
+
+            // Create a Map
+            const fruits = new Map();
+            xss = 0;
+            // Set Map Values
+            fruits.set("apples", 500);
+            fruits.set("bananas", 300);
+            fruits.set("oranges", 200);
+
+            document.write("<br>" + fruits.get("apples"));
+            fruits.set("apples", 1000);
+            document.write("<br>" + fruits.get("apples"));
+
+            fruits.delete("apples");
+            document.write("<br>" + fruits.get("apples"));
+
+            document.write("<br>");
+            let x = "";
+            fruits.forEach(function (value, key) {
+                document.write(key + "," + value + "<br>");
+            })
+            console.log(fruits);
+            fruits.set("apples", 1000);
+            document.write("<br>");
+            for (let x of fruits.entries()) {
+                document.write(x + "<br>");
+            }
+            document.write(typeof null);
+        }
+        // "use strict";
+        // function x(p1, p1) { };   // This will cause an erro
+        let x = 010;  
+    </script>
+    <h2>24-06-2022</h2>
+    <hr>
+    <hr><br>
+    <script>
+
+        let text = "Visit W3Schools";
+        let result = text.match(/w3schools/i);
+        document.write(result + "<br>");
+
+        try {
+            a2lert("Welcome guest!");
+        }
+        catch (err) {
+            document.write(err.message);
+        }
+
+    </script>
+    <h2>25-06-2022</h2>
+    <hr>
+    <hr><br>
+    <script>
+        const myfunction1 = (name, sirname) => name + " " + sirname;
+        let hello = () => {
+            return "Hello Jaydip";
+        }
+        let hello2 = (name) => "hello " + name;
+
+        document.write(myfunction1("Jaydip", "Gohil"));
+        document.write("<br>" + hello());
+        document.write("<br>" + hello2("User's"));
+
+        class info {
+            constructor(name = "jaydip", year = 2022) {
+                this.name = name;
+                this.year = year;
+            }
+            dispay() {
+                document.write("<br><br>using class <br>----------");
+                document.write("<br>Name : " + this.name + "<br>Year : " + this.year);
+            }
+        }
+        const i1 = new info("gohil jaydip", "2021");
+        i1.dispay();
+        const i2 = new info("jagdish gohil", "2015");
+        i2.dispay();
+        // console.log("class\nName : ", i1.name);
+        // console.log("Year : ", i1.year);
+    </script>
+    <script>
+        document.write("<br>")
+        class Car {
+            constructor(name, year) {
+                this.name = name;
+                this.year = year;
+            }
+            /*age(x) {
+              return x - this.year;
+            }*/
+            age = (a) => a - this.year;
+        }
+        let date = new Date();
+        let year = date.getFullYear();
+
+        let myCar = new Car("Ford", 2014);
+        document.write("My car is " + myCar.age(year) + " years old.");
+    </script>
+    <h2>27-06-2022</h2>
+    <hr>
+    <hr><br>
+    <script>
+        let json_text = '{"first_json_obj":[' +
+            '{"fname":"jaydip"},' +
+            '{"lname":"Gohil"},' +
+            '{"age":24}]}';
+        console.log(json_text);
+        const obj = JSON.parse(json_text);
+        console.log("Full Name:", obj.first_json_obj[0].fname + " " + obj.first_json_obj[1].lname);
+        console.log("age:", obj.first_json_obj[2].age);
+
+        let mca_subject = '{ "mca_marks": [' +
+            '{ "Oracle": 70 },' +
+            '{ "Cloud Computing": 85 },' +
+            '{ "Big Data": 90 },' +
+            '{ "Android": 88 },' +
+            '{ "Asp.net": 76 }] }';
+        console.log(mca_subject);
+        const mca_obj = JSON.parse(mca_subject);
+        let j = "";
+        const mca = mca_obj.mca_marks;
+        for (const key in mca) {
+            console.log(mca[key]);
+        }
+        // document.write(mca[0].Oracle);
+        console.log(mca);
+
+        text = "";
+
+        // for (const x of mca.entries()) {
+        //     text += x + "<br>";
+        // }
+        // document.write(text);
+
+        // let x3 = [];
+        // mca.forEach(myFunction5);
+
+        // function myFunction5(item, index, arr) {
+        //     x3 += item+"\n";
+        // }
+        // document.write(x3);
+
+        // console.log(x3);
+        text = "";
+        document.write(j);
+        for (let x in j) {
+            text += j[x];
+            document.write(Object.values(j[x]));
+        }
+        // document.write(Object.values(mca));
+        document.write(JSON.stringify(mca));
+        // console.log(Object.values(mca));
+        // document.write(text);
+        // console.log(text);
+
+    </script>
+
+    <script>
+        // DEBUGING
+        a3 = 5;
+        b3 = 6;
+        c3 = a3 + b3;
+        console.log(c3);
+        let x5 = 15 * 5;
+        //  debugger;
+        document.write(x5);
+
+        let r = "Hello";
+        r = 5;
+        console.log(r);
+    </script>
+    <script>
+        const person = new Object();
+        person.firstName = "John";
+        person.lastName = "Doe";
+        person.age = 50;
+        person.eyeColor = "blue";
+        const sx = person;  // Will not create a copy of person.
+
+        sx.age = 10;
+        document.write("<br>" + person.firstName + " is " + person.age + " years old.");
+        console.log("asign objects ", sx);
+        console.log("person objects ", person);
+    </script>
+    <h2>28-06-2022</h2>
+    <hr>
+    <hr><br>
+    <script>
+        const myObj = {
+            name: "John",
+            age: 30,
+            cars: {
+                car1: "Ford",
+                car2: "BMW",
+                car3: "Fiat",
+                carx: {
+                    car1: "Ford",
+                    car2: "BMW",
+                    car3: "Fiat"
+                }
+
+            },
+            carv: {
+                car1: "Ford",
+                car2: "BMW",
+                car3: "Fiat"
+            }
+        }
+        document.write(myObj["cars"]["carx"]["car1"]);
+        document.write(myObj["carv"]["car3"]);
+        const person2 = {
+            // Create an object:
+            firstName: "John",
+            lastName: "Doe",
+            language: "en",
+            get lang() {
+                return this.language;
+            },
+            get Name() {
+                return this.firstName;
+            },
+            set lname(lname) {
+                this.lastName = lname;
+            }
+        };
+        person2.lname = "Jaydip";
+        // Display data from the object using a getter:
+        document.write("<br>" + person2.lang + " " + person2.Name);
+        document.write("<br>" + person2.lastName);
+
+        function Person(first, last, age, eye) {
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.eyeColor = eye;
+        }
+
+
+        Person.prototype.nationality = "Hindi";
+        Person.prototype.country = "india";
+        const myFather = new Person("Jaydip D", "Gohil", 50, "Black");
+        document.write("<br>" + myFather.nationality + " " + myFather.country);
+
+        Person.prototype.fullname = function () {
+            return this.firstName + " " + this.lastName;
+        };
+        document.write("<br>" + myFather.fullname());
+
+    </script>
+    <h2>29-06-2022</h2>
+    <hr>
+    <hr><br>
+
+    <script>
+        {
+            const person = {
+                fullName: function (city = "", country = "") {
+                    return "<br>Name : " + this.firstName + " " + this.lastName + ",<br>village : " + city + "<br>City :" + country + "<br>--------------------";
+                }
+            }
+            function fullName2(city, country) {
+                return "<br>Name : " + this.firstName + " " + this.lastName + ",<br>village : " + city + "<br>City :" + country + "<br>--------------------";
+            }
+
+
+            const person1 = {
+                firstName: "John",
+                lastName: "Doe"
+            }
+            const person2 = {
+                firstName: "jaydip",
+                lastName: "gohil"
+            }
+            const person3 = {
+                firstName: "jaydip",
+                lastName: "gohil"
+            }
+            document.write(person.fullName.call(person1, "Oslo", "Norway"));
+            document.write(fullName2.call(person2, "derod", "kamrej,surat"));
+            document.write(person.fullName.apply(person1, ["bhavnagar", "Bhavnagar,Gujarat"]));
+            document.write(fullName2.apply(person2, ["mhuva", "mahuva,gujarat"]));
+            let x = person.fullName.bind(person3);
+            document.write(x("derod", "kamrej,surat"));
+
+        }
+        // CLASS
+        {
+            class person {
+                constructor() {
+                    this.name = "";
+                    this.age = "";
+                }
+                set_value(n, a) {
+                    this.name = n;
+                    this.age = a;
+                }
+                dispay() {
+                    document.write("<br>Name : " + this.name);
+                    document.write("<br>Age : " + this.age);
+                }
+            }
+            const p1 = new person();
+            p1.set_value("Manish Sankhat", 25);
+            p1.dispay();
+            // const p2 = new person();
+            p1.set_value("Jaydip Gohil", 22);
+            p1.dispay();
+        }
+    </script>
+    <h2>30-06-2022</h2>
+    <hr>
+    <hr><br>
+
+</body>
+
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            margin: 10px;
+        }
+    </style>
+    <script src="external/first.js"></script>
+    <script>
+        function my() {
+            document.getElementById("demo").innerHTML = "Hello Jaydip!";
+            document.getElementById("demo2").innerHTML = "jaydip  gohil";
+            document.getElementById("demo3").innerHTML = Date();
+            none();
+        }
+        function hide() {
+            document.getElementById("demo").innerHTML = document.getElementById("demo2").innerHTML = document.getElementById("demo3").innerHTML = "";
+            block();
+        }
+        function block() {
+            document.getElementById("show").style.display = "block";
+            document.getElementById("hide").style.display = "none";
+        }
+        function none() {
+            document.getElementById("show").style.display = "none";
+            document.getElementById("hide").style.display = "block";
+        }
+        function imageshow() {
+            const x = document.getElementById("imageshow");
+            x.style.display = "block";
+            x.style.position = "absolute";
+            x.style.top = 0;
+            x.style.right = 0;
+            x.style.zindex = 1;
+            x.style.margin = "10px";
+            y = document.getElementById("my-3-img").style.width = "50px";
+
+
+        }
+    </script>
+</head>
+
+
+<body>
+    <!-- 9-6-2022 -->
+    <h2>What Can JavaScript Do?</h2>
+
+    <p id="demo">JavaScript can change HTML content.</p>
+    <p id="demo2"></p>
+    <h1 id="demo3"></h1>
+
+    <button type="button" onclick="my()" id="show">Click
+        Me to show!</button>
+    <button id="hide" type="button" onclick="hide()" style="display:none">Click
+        Me to hide</button>
+
+    <br>
+    <img id="myImage" src="pic_bulboff.gif" style="width:100px">
+    <button onclick="document.getElementById('myImage').src='pic_bulbon.gif'">Turn on the light</button>
+    <button onclick="document.getElementById('myImage').src='pic_bulboff.gif'">Turn off the light</button>
+    <h1 onmouseover="document.getElementById('demo-4').innerHTML = 'Hi I Am Jaydip Gohil'"
+        onmouseout="document.getElementById('demo-4').innerHTML = 'Hover me'" id="demo-4">Hover me</h1>
+
+    <div onmouseover=" document.getElementById('my-2-img').src='pic_bulbon.gif';document.getElementById('bulb_status').innerHTML = 'Switch ON';"
+        onmouseout=" document.getElementById('my-2-img').src='pic_bulboff.gif';document.getElementById('bulb_status').innerHTML = 'Switch OFF';"
+        style="width:fit-content" onclick="imageshow()"> <img id="my-2-img" src="pic_bulboff.gif" style="width:100px">
+    </div>
+    <div id="imageshow" style="display:none"> <img id="my-3-img" src="pic_bulbon.gif" style="width:100px"></div>
+    <p id="bulb_status">Switch OFF</p>
+
+    <script>
+        let x = 5 + 5;
+        document.write("<br>" + x);
+        let y = "5" + 5;
+        document.write("<br>" + y);
+        let z = "Hello" + 5;
+        document.getElementById("demo").innerHTML =
+            x + "<br>" + y + "<br>" + z;
+    </script>
+    <script>//color
+        function white() { document.body.style.color = "white"; }
+        function black() { document.body.style.backgroundColor = "black"; white() }
+        function red() { document.body.style.backgroundColor = "red"; white() }
+        function green() { document.body.style.backgroundColor = "green"; white() }
+        function normal() { document.body.style.backgroundColor = "white"; document.body.style.color = "black"; }
+    </script>
+    <button id="normal" class="text-black p-25 m-25 bg-gradient" onclick="normal()">black</button>
+    <button id="black" class="text-white p-25 m-25 bg-black" onclick="black()">black</button>
+    <button id="red" class="text-white p-25 m-25 bg-danger " onclick="red()">red</button>
+    <button id="green" class="text-white p-25 m-25" style="background-color:green" onclick="green()">green</button>
+
+    <script>
+        let u = 10;
+        let a = "1 0";
+        if (u !== a) {
+            document.write("true");
+        }
+        else {
+            document.write("false");
+        }
+        document.write(typeof (u));
+        var c;
+        c = x;
+
+        document.write("<br>");
+        document.write(10 & 2);
+
+        // console.log(xa);
+        const man = {
+            name: "jaydip",
+            age: 24
+
+        };
+    </script>
+    <p>This example calls a function which performs a calculation, and returns the result:</p>
+    <p id="function"></p>
+    <script>
+        function myFunction(p1, p2) {
+            document.writeln("j");
+            return p1 * p2;
+        }
+        document.getElementById("function").innerHTML = myFunction(5, 4);
+        {
+            const car = {
+                name: "jaydip gohil",
+                study: "Mca",
+                y: 2022
+            };
+            console.log("name :" + car.name + "\n" +
+                "study :" + car.study + "\n" +
+                "passing year :" + car.y + "\n"
+            );
+            const person = {
+                firstName: "John",
+                lastName: "Doe",
+                id: 5566,
+                fullName: function () {
+                    return this.firstName + " " + this.lastName;
+                }
+            };
+            console.log(person.fullName() + "\n");
+            console.log(car['name'] + " " + car["study"]);
+        }
+    </script>
+    <button id="demo_click_btn" onclick="document.getElementById('demo_click_btn').innerHTML=Date();alert(Date())">The
+        time is?</button>
+    <button onclick="this.innerHTML=Date()">click to get Time</button>
+    <script>
+        {
+            let a2 = "jaydip";
+            let aa = new String("jaydip");
+            console.log(typeof x + "<br>" + aa instanceof String);
+            console.log(aa == a2);
+            let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            console.log(text.length);
+            let str = "Apple, Banana, Kiwi";
+            console.log(str.slice(-8));
+            let email = "gohiljaydip67@gmail.com"
+            console.log(email.slice(0, -10));
+            let domain = email.substring(0, email.indexOf('@'));
+            console.log(domain); // Host name
+            console.log(email.substr(0, email.indexOf('@')));
+            console.log(email = email.replace(/[0-9]/g, ''));
+            console.log(email.substring(0, (email.indexOf('@'))));
+            console.log(email.toUpperCase());
+            console.log(text.toLowerCase());
+            let text1 = "Jaydip";
+            let text2 = "Gohil";
+            console.log(text1.concat(" ", text2));
+            let sirname = "Gohil";
+            let f_name = "jaydip";
+            console.log(`welcome back ${sirname} ${f_name}! `)
+            console.log(`${(sirname + " " + f_name)}`);
+        }
+        {
+            let x = 3.14;
+            let y = 3;
+            document.write("<br>" + x + "<br>" + y);
+        }
+        {
+            const cars = ["jaydip", "gohil", "saab", "bMW"];
+            console.log("" + cars);
+            document.write("<br>" + cars);
+            document.write("<br>" + cars.sort());
+            document.write("<br>" + cars.length);
+        }
+        {
+            const name = ["jaydip", "gohil"];
+            document.write("<br>" + name);
+        }
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        let text = "<ul>";
+        fruits.forEach(myFunction);
+        text += "</ul>";
+        document.write(text);
+
+        function myFunction(value) {
+            text += "<li>" + value + "</li>";
+        } 
+    </script>
+    <p id="sift1"></p>
+    <p id="sift2"></p>
+    <button onclick="shift()">shift</button>
+    <script>{
+            const fruits = ["Banana", "Orange", "Apple", "Mango"];
+            document.getElementById("sift1").innerHTML = fruits;
+            function shift() {
+                let last = fruits[0];
+                fruits.shift();
+                fruits.push(last);
+                document.getElementById("sift2").innerHTML = fruits;
+            }
+        }
+    </script>
+
+
+
+
+    <script>
+        let array1 = [
+            { id: 3, name: "jaydip", lang: "javascript" },
+            { id: 1, name: "gautam", lang: "python" },
+            { id: 2, name: "jay", lang: "node" },
+            { id: 4, name: "harshil", lang: "python" }
+        ];
+
+        const array2 = array1.map(myFunction);
+        console.log("gsutam", array1);
+        // document.write(array2.name + "," + array2.lang);
+        function myFunction(value, index, array) {
+            if (value.name == "gautam") {
+                // console.log(index);
+                value.lang = "php";
+            }
+            return value;
+        }
+        console.log("array1", array1);
+
+        const sort = array1.sort(function (a, b) { return a.id - b.id });
+        console.log(array1);
+        let txt = "";
+        sort.forEach(myFunction2);
+        function myFunction2(value, index, array) {
+            txt += "<br>" + value.id + "-" + value.name + "-" + value.lang + "<br>";
+        }
+        document.write("<br>sorting<br>");
+        document.write(txt);
+
+        let python = "";
+        sort.filter(myFunction3);
+        document.write("<br>python<br>");
+        document.write(python);
+        function myFunction3(value, index, array) {
+            if (value.lang == "python") {
+                return python += "<br>" + value.id + "-" + value.name + "-" + value.lang + "<br>";
+            }
+            // return python;
+        }
+
+
+    </script>
+    <script>
+        document.write("<br>date<br>");
+        const d = new Date();
+        document.write(d);
+        document.write(Math.trunc(4.9) + "<br>");
+        document.write(Math.trunc(4.7) + "<br>");
+        document.write(Math.trunc(4.4) + "<br>");
+        document.write(Math.trunc(4.2) + "<br>");
+        document.write(Math.trunc(-4.2) + "<br>");
+
+        document.write(Math.sign(30) + "<br>");
+        // expected output: 1
+
+        document.write(Math.sign(-03) + "<br>");
+        // expected output: -1
+
+        document.write(Math.sign('-0') + "<br>");
+        // expected output: 0
+
+        document.write(Math.sign('-33') + "<br>");
+        // expected output: -1  
+        document.write(Math.cos(Math.round((1 * Math.PI / 180))));
+
+    </script>
+    <!--for-in loop -->
+    <br>
+    <script>
+        const person = {
+            FirstName: "jaydip",
+            SirName: "gohil",
+            Age: "24"
+        };
+        document.write("<br>For-in loop<br>");
+        for (let key in person) {
+            document.write(key + " : " + person[key] + "<br>");
+        }
+        console.log("for-in loop");
+        for (let key in person)//person is objects and key is  index
+        {
+            console.log(key + " : " + person[key]);
+        }
+    </script>
+    <!--for-Of loop -->
+    <br>
+    <script>
+        const object1 = [
+            "FullName : Jaydip Gohil",
+            "Language : Node.js,Php,Javascripts",
+            "DateOfBirth : 01-02-1998",
+            "MarriedStatus : Single",
+            "Address : Derod,Kamrej"
+        ];
+        document.write("<br>For-Of loop<br>");
+        for (let key of object1) {
+            document.write(key + "<br>");
+        }
+
+        console.log("for-of loop");
+
+        for (let key of object1) {
+            console.log(key);
+        }
+        const a1 = [1, 2, 3, 4, 8, 9];
+        for (let index of a1) {
+            document.write("<br>" + index);
+        }
+        document.write("<br>");
+        var s1 = "Jaydip Gohil";
+        for (let index of s1) {
+            document.write("<br>" + index);
+        }
+    </script>
+
+</body>
+
+
+</html>
