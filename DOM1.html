@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head id="my-document-head">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</title>
+</head>
+
+<body>
+
+    <p id="intro">Finding HTML Elements by Id</p>
+    <p>This example demonstrates the <b>getElementsById,Class</b> method.</p>
+
+    <div id="main">
+        <p>Finding HTML Elements by Tag Name</p>
+        <p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+    </div>
+
+
+    <p>Finding HTML Elements by Class Name.</p>
+    <p class="intro">Hello World!</p>
+    <p class="intro">This example demonstrates the <b>getElementsByClassName</b> method.</p>
+
+    <p>Finding HTML Elements by Query Selector</p>
+    <p class="intro">Hello World!.</p>
+    <p class="intro">This example demonstrates the <b>querySelectorAll</b>
+    <p id="demo"></p>
+
+    <script>
+        const element = document.getElementById("intro");
+        element.innerHTML += "<br>=>find and change/add text by id";
+        {
+            const element2 = document.getElementsByTagName("p");
+            element2[0].innerHTML += "<br>=>find by class and change class";
+        }
+        {
+            const x = document.getElementById("main");
+            const y = x.getElementsByTagName("p");
+            document.write('The first paragraph (index 0) inside "main" is: ' + y[1].innerHTML);
+        }
+        {
+            const x = document.getElementsByClassName("intro");
+            document.write(
+                'The first paragraph (index 0) with class="intro" is: ' + x[0].innerHTML + "<br>" + x[1].innerHTML);
+        }
+        {
+            const x = document.querySelectorAll("p.intro");
+            document.write('The first paragraph (index 0) with class="intro" is: ' + x[0].innerHTML + "<br>");
+        }
+    </script>
+    <h2>01-07-2022</h2>
+    <hr>
+    <hr><br>
+
+    <form id="form1" target="_parent" method="">
+        First name: <input type="text" name="fname" value="Jaydip" placeholder="Enter the value"><br>
+        Last name: <input type="text" name="lname" value="Gohil" placeholder="Enter the value"><br><br>
+        <input type="text" value="Hello Jaydip Goihl" name="welcome">
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        {
+            const elt = document.forms["form1"];
+            let text = "";
+            for (let i = 0; i < elt.length; i++) {
+                text += elt[i].name + " : " + elt.elements[i].value + "<br>";
+            }
+            document.write(text);
+
+        }
+        function my() {
+            document.getElementById("doc").innerHTML = document.documentElement.innerHTML;
+        }
+        document.write("Number of embeds: " + document.embeds.length);
+        document.write("<br>Number of forms:" + document.forms.length);
+    </script>
+    <p id="doc" onclick="my()">CLICK ME NOW</p>
+    <p id="doc2"></p>
+    <img src="https://www.w3schools.com/jsref/klematis.jpg" alt="flower" width="150" height="120">
+    <img src="https://www.w3schools.com/jsref/klematis2.jpg" alt="flower" width="150" height="120">
+    <img src="https://www.w3schools.com/jsref/klematis.jpg" alt="flower" width="150" height="120">
+    <script>
+
+        let tag = document.head.firstElementChild.tagName;
+        document.getElementById("doc2").innerHTML = tag;
+        document.write("<br>" + document.images.length);
+
+        const myimages = document.images;
+        let text = "";
+        for (let i = 0; i < myimages.length; i++) {
+            text += myimages[i].src + "<br>";
+        }
+        document.write("<br>" + text);
+    </script>
+    <form action="" name="myform1" onsubmit=" return validateform()">
+        Name : <input type="text" name="text">
+        <input type="submit" value="submit">
+    </form>
+    <script>
+        function validateform() {
+            let x = document.forms["myform1"]["text"].value;
+            if (isNaN(x) || x < 1 || x > 10) {
+                alert("input is not valid");
+            }
+            else {
+                alert("input is valid")
+            }
+            if (x == "") {
+                alert("must be enter data");
+                return false;
+            }
+
+            else if (x != "") {
+                alert("Registration succesfully");
+                return true;
+            }
+
+        }
+    </script>
+
+    <h1 onclick="changeText(this)">Click Me </h1>
+    <P id="btn2_p"></P>
+    <P id="btn4_p"></P>
+    <input type="button" value="Click to get Date 2" id="btn2">
+    <input type="button" value="addEventListener 3" id="btn3">
+    <input type="button" value="addEventListener 4" id="btn4">
+
+    <script>
+
+        function changeText(id) {
+            id.innerHTML = "Jaydip Gohil";
+        }
+        document.getElementById("btn2").onclick = displaydate;
+        function displaydate() {
+            document.getElementById("btn2_p").innerHTML = Date();
+        }
+        document.getElementById("btn3").addEventListener("click", displaydate);
+        
+        let p1 = 5;
+        let p2 = 7;
+        document.getElementById("btn4").addEventListener("click", function () {
+            myFunction(p1, p2);
+        });
+
+        function myFunction(a, b) {
+            document.getElementById("btn4_p").innerHTML = a * b;
+        }
+    </script>
+     <h2>04-07-2022</h2>
+     <hr>
+     <hr><br>
+
+
+
+</body>
+
+</html>
