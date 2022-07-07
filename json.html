@@ -11,7 +11,32 @@
 <body>
 
     <script>
-        
+        {
+            let json_text = {
+                "employee": [
+                    {
+                        "name": "jaydip",
+                        "city": "bhavnagar",
+                        "age": "22"
+                    },
+                    {
+                        "Date": Date(),
+                        "undefined": undefined,
+                        "Null": null
+                    }
+                ]
+            };
+            //const j=json_text.employee.toString;
+            display(json_text);
+
+            function display(obj) {
+                console.log(obj);
+            }
+            const text = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
+            display(text);
+            display(JSON.parse(text));
+
+        }
     </script>
 </body>
 
