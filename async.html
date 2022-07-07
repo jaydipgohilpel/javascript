@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Async</title>
+</head>
+
+<body>
+    <script>
+        function myDisplayer(something) {
+            document.write(something);
+        }
+
+        function myCalculator(num1, num2, myCallback) {
+            let sum = num1 + num2;
+            myCallback(sum);
+        }
+
+        myCalculator(5, 5, myDisplayer);
+        setInterval(myFunction, 100);
+
+        function myFunction() {
+            let d = new Date();
+            document.getElementById("demo").innerHTML =
+                d.getHours() + ":" +
+                d.getMinutes() + ":" +
+                d.getSeconds() + ":" +
+                d.getMilliseconds();
+        }
+    </script>
+    <p id="demo"></p>
+
+    <h1> 05-07-2022</h1>
+    <script>
+        let pro = new Promise(function (resolve, reject) {
+            let x = true;
+            if (x == true) {
+                resolve("promise complited sucssesfully");
+            }
+            else {
+                reject("promise is rejected");
+            }
+            // setTimeout(function () { resolve("resolved succesfully !!"); }, 9000);
+        });
+        pro.then(
+            function (value) { display(value); },
+            function (error) { display(error); }
+
+        );
+        display = (value) => document.write("<br>" + value);
+
+    </script>
+    <script>
+        {
+            function prom(complite) {
+                return new Promise(function (resolve, reject) {
+                    console.log("fetching  data pleaase wait...");
+                    setTimeout(() => {
+                        if (complite) {
+                            resolve("resolve succsesfully");
+                        }
+                        else {
+                            reject("primise is rejected");
+                        }
+
+                    }, 3000);
+                });
+            }
+            prom(true).then((result) => {
+                console.log(result);
+            }).catch((error) => {
+                console.log(error);
+            })
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+
+</head>
+
+
+<body>
+    <h2>06-07-2022</h2>
+    <hr>
+    <hr><br>
+    <div>
+        <form action="" method="post" onsubmit="return false">
+            <table>
+                <tr>
+                    <th colspan="2">Registration Form</th>
+                </tr>
+                <tr>
+                    <td> <label for="sirname">SirName :</label></td>
+                    <td><input type="text" id="sirname" name="sirname" style="width:100%"></td>
+                </tr>
+                <tr>
+                    <td><label for="name">Name :</label></td>
+                    <td> <input type="text" name="name" id="name" style="width:100%"><br><br></td>
+
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td><input type="submit" id="button" value="Save" onclick="save_data()" style="width:100%">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" id="button" value="Get localstorage Data" onclick="get_local_data()"
+                            style="width:100%">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" id="button" value="get from session storage" onclick="get_session_data()"
+                            style="width:100%">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" id="button" value="Remove Storageone by one item"
+                            onclick="remove_storage()" style="width:100%">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" id="button" value="Remove All storage"
+                            onclick="localStorage.clear();sessionStorage.clear()" style="width:100%">
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th style="float: left;">
+                        <p id="result"></p>
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <script>
+        const ls = localStorage;
+        console.log(ls.getItem(ls.key(ls.length - 1)));
+        save_data = () => {
+            const sirname = document.getElementById("sirname").value;
+            const name = document.getElementById("name").value;
+            let result = document.getElementById("result");
+            console.log("SirName : " + sirname);
+            console.log("Name : " + name);
+
+            // local storage data store 
+            localStorage.setItem("SirName", sirname);
+            localStorage.setItem("Name", name);
+
+            // sesstion storage data store 
+            sessionStorage.setItem("SirName", sirname);
+            sessionStorage.setItem("Name", name);
+            get_local_data();
+
+
+        }
+        function get_local_data() {
+            result.innerHTML = "localstorage data<br>----------------<br>";
+            result.innerHTML += "SirName : " + localStorage.getItem("SirName");
+            result.innerHTML += "<br>Name : " + localStorage.getItem("Name");
+        }
+
+        function get_session_data() {
+            // result="";
+            if (sessionStorage.getItem("SirName") != null & sessionStorage.getItem("Name") != null) {
+                result.innerHTML = "sessionstorage data<br>----------------<br>";
+                result.innerHTML += "SirName : " + sessionStorage.getItem("SirName");
+                result.innerHTML += "<br>Name : " + sessionStorage.getItem("Name");
+            }
+            else {
+                result.innerHTML = "sessionstorage data<br>----------------<br>";
+                result.innerHTML += "No Data Found";
+            }
+
+
+
+
+        }
+        function remove_storage() {
+            localStorage.removeItem("SirName");
+            localStorage.removeItem("Name");
+            sessionStorage.removeItem("SirName");
+            sessionStorage.removeItem("Name");
+        }
+    </script>
+    <!-- web worker -->
+
+    <h2>JavaScript Web Workers API</h2>
+    <p>Count numbers: <output id="result2"></output></p>
+    <button onclick="startWorker()">Start Worker</button>
+    <button onclick="stopWorker()">Stop Worker</button>
+
+    <script>
+        let w;
+
+        function startWorker() {
+            if (typeof (w) == "undefined") {
+                w = new Worker("https://www.w3schools.com/js/demo_workers.js");
+            }
+            w.onmessage = function (event) {
+                document.getElementById("result2").innerHTML = event.data;
+            };
+        }
+
+        function stopWorker() {
+            w.terminate();
+            w = undefined;
+        }
+    </script>
+    <p id="demo1">Fetch a file to change this text.</p>
+    <p id="demo2">Fetch a file to change this text.</p>
+
+    <script>
+        getText("fetch_info.txt");
+
+        async function getText(file) {
+            let x = await fetch(file);
+            let y = await x.text();
+            document.getElementById("demo1").innerHTML = y;
+        }
+
+
+        {
+            let file = "../fetch_info.txt";
+
+            fetch(file)
+                .then(x => x.text())
+                .then(y => document.getElementById("demo2").innerHTML = y);
+        }
+    </script>
+    <script>
+        {
+
+            getText("file:///D:/companylearn/javascript/fetch_info.text");
+            async function getText(file) {
+                let myObject = await fetch(file);
+                let myText = await myObject.text();
+                document.getElementById("demo2").innerHTML = myText;
+            }
+        }
+
+        function fun() {
+            let sum = 0;
+            for (let i of arguments.length - 1) {
+                sum += i;
+            }
+            console.log(sum);
+
+        }
+        let arr = [1, 2, 3, 4];
+        //  fun(arr);
+
+        console.log(...arr);
+    </script>
+
+
+
+
+</body>
+
+</html>

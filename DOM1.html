@@ -138,7 +138,7 @@
             document.getElementById("btn2_p").innerHTML = Date();
         }
         document.getElementById("btn3").addEventListener("click", displaydate);
-        
+
         let p1 = 5;
         let p2 = 7;
         document.getElementById("btn4").addEventListener("click", function () {
@@ -149,9 +149,36 @@
             document.getElementById("btn4_p").innerHTML = a * b;
         }
     </script>
-     <h2>04-07-2022</h2>
-     <hr>
-     <hr><br>
+    <h2>04-07-2022</h2>
+    <hr>
+    <hr><br>
+    <div id="div1">
+        <p id="p1">1-This is a paragraph.</p>
+        <p id="p2">2-This is another paragraph.</p>
+        </div>
+    <script>
+        {
+            const inp = document.createElement("p");
+            const text1=document.createTextNode("3-this is paragraph tag created with node ");
+            inp.appendChild(text1);
+            const e=document.getElementById("div1");
+            const child=document.getElementById("p1")
+            // e.appendChild(inp);
+            e.insertBefore(inp,child);
+            // e.removeChild(child);
+            const rpara=document.createElement("p");
+            const rtext=document.createTextNode("4-new replaced paragrapg");
+            rpara.appendChild(rtext);
+            e.replaceChild(rpara,child);
+            
+            
+            
+
+
+        }
+        remove_all=()=>document.body.remove();
+    </script>
+    <input type="button" onclick="remove_all()" value="Clear Page All Data">
 
 
 
