@@ -29,14 +29,15 @@
             //const j=json_text.employee.toString;
             display(json_text);
 
-            function display(obj) {
-                console.log(obj);
-            }
+            
             const text = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
             display(text);
             display(JSON.parse(text));
 
         }
+        function display(obj) {
+                console.log(obj);
+            }
         {
             const text = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
             const obj = JSON.parse(text, function (key, value) {
@@ -51,9 +52,17 @@
     </script>
 
     <script>
+        function display()
+        {
+            console.log("hellow Jaydip");
+        }
         setTimeout(function () {
             console.log("Welcome to GeeksforGeeks!");
         }, 2000);
+        setTimeout(function () {
+            console.log("hellow");
+        }, 2300);
+        setTimeout(display, 1000);
     </script>
 </body>
 
