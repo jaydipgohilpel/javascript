@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<!-- promise example 1 -->
+<script>
+    let i = true;
+    let p1 = new Promise(function (resolve, reject) {
+        console.log("this promise is in Panding sate");
+        if (i == true) {
+            resolve("promise is Resolved succesfully " + i);
+        } else {
+            reject("promise is Rejected due to some Error " + i)
+        }
+    });
+    p1.then(
+        function (value) { console.log(value); },
+        function (error) { console.log(error); }
+    );
+
+</script>
+<!--promise example 2 -->
+<script>
+    let j = 0;
+    let k = "0";
+    let p2 = new Promise(function (resolve, reject) {
+        console.log("promise 2:-> is in panding state");
+        if (j === k) {
+            resolve("Fulfilled");
+        } else {
+            reject("Rejected");
+        }
+    });
+    p2.then(function (value) {
+        console.log("promise 2 is Resolve\nmessage : " + value);
+    }).catch(function (error) {
+        console.log("promise 2 is Rejected due to some errors \nError : " + error);
+    });
+</script>
+<!-- async awaite -->
+<script>
+
+    async function resolveAfter2Seconds() {
+        console.log("in Panding");
+        console.log("please wait loading...");
+        return new Promise(resolve => {
+            // setTimeout(() => {
+            resolve("resolved");
+            // }, 2000);
+        });
+        // console.log("exicuted");
+
+    }
+    function dis() {
+        console.log("dis() function");
+    }
+    async function asyncCall() {
+        console.log('calling');
+        const result = await resolveAfter2Seconds();
+        console.log("\n ", result);
+        dis();
+        // expected output: "resolved"
+
+    }
+    async function f1() {
+        console.log("before");
+        console.log(" one ");
+        await asyncCall();//must exicute
+        console.log(" two ");
+        console.log("after");
+
+    }
+    f1();
+
+</script>
+<script>
+    // example two
+    async function async_function() {
+        console.log("pending.\n Loading...\n please wait....");
+        return new Promise(resolve => { //return promise
+            // setTimeout(() => {
+            resolve("resolved");
+            // }, 2000);
+        });
+
+    }
+    async function call_function() {
+        console.log(await async_function());
+        console.log("2].completed exicution call_function() call");
+
+    }
+
+    console.log("1].before call() functiomn invocked");
+    call_function();
+
+
+</script>
+
+<body>
+
+</body>
+
+</html>

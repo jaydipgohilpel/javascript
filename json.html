@@ -8,6 +8,7 @@
     <title>Json</title>
 </head>
 
+
 <body>
 
     <script>
@@ -29,15 +30,15 @@
             //const j=json_text.employee.toString;
             display(json_text);
 
-            
+
             const text = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
             display(text);
             display(JSON.parse(text));
 
         }
         function display(obj) {
-                console.log(obj);
-            }
+            console.log(obj);
+        }
         {
             const text = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
             const obj = JSON.parse(text, function (key, value) {
@@ -52,8 +53,7 @@
     </script>
 
     <script>
-        function display()
-        {
+        function display() {
             console.log("hellow Jaydip");
         }
         setTimeout(function () {
@@ -63,6 +63,19 @@
             console.log("hellow");
         }, 2300);
         setTimeout(display, 1000);
+    </script>
+    <button onclick="jason_move()">Move TO Json</button>
+   
+    <script>
+        function jason_move() {
+            const myObj = { name: "John", age: 31, city: "New York" };
+            const myJSON = JSON.stringify(myObj);
+            location = "https://www.w3schools.com/js/demo_json.php?x=" + myJSON;
+        }
+        let v=function(){
+            console.log("function invocked without calling.");
+        }();
+    </script>
     </script>
 </body>
 
