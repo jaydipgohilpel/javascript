@@ -14,14 +14,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../style.css">
     <script src="../jsFile/dashboard-js.js"></script>
+    <style>
+        th,
+        td {
+            border: 2px solid DodgerBlue;
+            padding: 5px;
+        }
+    </style>
 </head>
 
-<body style="overflow: hidden;">
+<body style="overflow: auto;">
     <!-- Section: Design Block -->
     <section class="background-radial-gradient overflow-hidden" style="height:1000px;">
 
-        <div class="container px-4  px-md-5 text-center text-lg-start my-5">
-            <!-- py-5 -->
+        <div class="container px-4   text-center text-lg-start my-5">
+            <!-- py-5  px-md-5-->
             <div class="row gx-lg-5 align-items-center mb-5">
 
                 <div class="col-lg-12 mb-5 mb-lg-0 position-relative">
@@ -29,41 +36,194 @@
                     <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
 
                     <div class="card bg-glass">
-                        <div class="card-body px-4 py-5 px-md-5">
+                        <div class="card-body  " style="padding-bottom: 3rem!important;padding-right: 3rem!important;">
+                            <!-- px-md-5 px-4 py-5   -->
                             <form>
                                 <!--  onsubmit="return validate_register() -->
                                 <div class="row">
-                                    <div class="col-md-6 ">
+                                    <div class="col-md-4 ">
                                         <div class="form-outline">
+                                            <h3>Admin Dashboard</h3>
 
-                                            <script> if (role == 'admin') {
-                                                    document.write(`<p  style="float: left; color: green;weight: bold;" class="form-label" id="lbl_welcome">Welcome ${w} !</p>`);
-                                                }
-                                                else {
-                                                    document.write(`<p  style="float: left;color: DodgerBlue;weight: bold;" class="form-label" id="lbl_welcome">Welcome ${w} !</p>`);
-                                                }
-                                            </script>
+                                            <p style="float: left; color: green;weight: bold;" class="form-label"
+                                                id="lbl_welcome">Welcome
+                                                <script>document.write(w);</script>
+                                                !
+                                            </p>
+
+
+
+
 
                                         </div>
                                     </div>
+                                    <div class="col-md-8 ">
+                                        <div>
+                                            <div>
+                                                <span>
 
-                                </div>
+                                                    <button type="button" class="btn btn-primary btn-block mt-4"
+                                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                        Create Book
+                                                    </button>
+                                                    <!-- Submit button -->
+                                                    <button type="submit" onclick="logout()"
+                                                        class="btn btn-primary btn-block mt-4">
+                                                        Log Out
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
 
-                                <!-- Submit button -->
-                                <button type="submit" onclick="logout()" class="btn btn-primary btn-block mt-4">
-                                    Log Out
-                                </button>
 
 
                             </form>
                         </div>
                     </div>
+                    <div class="row ">
+                        <div class="col-12 ">
+                            <div class="d-flex text-center align-content-center">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- display book details -->
+        <div class="    text-center text-lg-start my-5">
+            <!-- py-5  px-md-5-->
+            <div class="row  gx-lg-5 align-items-center mb-5">
+
+                <div class="col-lg-12  mb-5 mb-lg-0 position-relative">
+                    <div id="" class="position-absolute rounded-circle shadow-5-strong"></div>
+                    <div id="" class="position-absolute shadow-5-strong"></div>
+
+                    <div class="card bg-glass">
+
+
+                        <div class="card-body  " style="padding-bottom: 3rem!important;padding-right: 3rem!important;">
+                            <h3>Book Details</h3>
+                            <table style="text-align: center;">
+                                <tr>
+                                    <th>Book Id</th>
+                                    <th>Book Name</th>
+                                    <th>Book Price</th>
+                                    <th>Auther Name</th>
+                                    <th>UserName</th>
+                                    <th>purchase By</th>
+                                </tr>
+
+                                <script>
+
+                                    const data = JSON.parse(localStorage.getItem("bookDb"));
+                                    data.forEach(e => {
+                                        if (e.username === w) {
+                                            if (e.purchaseBy === undefined) {
+                                                e.purchaseBy = "Not purchase Yet";
+                                            }
+                                            document.write(`<tr>
+                                            <td>${e.bId}</td>
+                                            <td>${e.bookname}</td>
+                                            <td>${e.bookprice}</td>
+                                            <td>${e.authername}</td>
+                                            <td>${e.username}</td>
+                                             <td>${e.purchaseBy}</td>
+                                            </tr>`);
+                                        }
+                                    });
+                                </script>
+
+
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+
+
+        <!-- popup code -->
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="bookAddForm">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Create Books</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- model body -->
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <div class="form-outline">
+                                        <input type="text" id="bookname" class="form-control" required />
+                                        <label class="form-label" for="form3Example1">Book Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <div class="form-outline">
+                                        <input type="number" id="bookprice" class="form-control" accept="number"
+                                            pattern="[0-9]" required style="scroll-behavior:hidden" />
+                                        <label class="form-label" for="form3Example2">Book Price</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <div class="form-outline">
+                                        <input type="text" id="authername" class="form-control" required />
+                                        <label class="form-label" for="form3Example1">Auther Name</label>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-6 ">
+                                <div class="form-outline">
+                                    <input type="email" id="email" class="form-control"  required />
+                                    <label class="form-label" for="form3Example3">Email address</label>
+                                </div>
+                            </div> -->
+                                <div class="col-md-6 ">
+                                    <div class="form-outline">
+                                        <select class="form-control" id="username" required disabled>
+                                            <option value="admin" title="admin" selected>
+                                                <script>document.write(w);</script>
+                                            </option>
+                                        </select>
+                                        <label class="form-label" for="form3Example2">Username</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- model body -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" onclick="return saveBookData()">Create
+                                Book</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
     </section>
+
+
     <!-- Section: Design Block -->
 </body>
 

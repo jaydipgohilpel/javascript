@@ -35,15 +35,12 @@
                                 <div class="row">
                                     <div class="col-md-6 ">
                                         <div class="form-outline">
-
-                                            <script> if (role == 'admin') {
-                                                    document.write(`<p  style="float: left; color: green;weight: bold;" class="form-label" id="lbl_welcome">Welcome ${w} !</p>`);
-                                                }
-                                                else {
-                                                    document.write(`<p  style="float: left;color: DodgerBlue;weight: bold;" class="form-label" id="lbl_welcome">Welcome ${w} !</p>`);
-                                                }
-                                            </script>
-
+                                            <h3>User Dashboard</h3>
+                                            <p style="float: left; color: DodgerBlue;weight: bold;" class="form-label"
+                                                id="lbl_welcome">Welcome
+                                                <script>document.write(w);</script>
+                                                !
+                                            </p>
                                         </div>
                                     </div>
 
