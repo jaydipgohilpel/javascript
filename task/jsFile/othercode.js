@@ -129,3 +129,37 @@
     //         }
     //     }
     // }
+
+    // let user_data_arr = [];
+
+// // user_data_arr = JSON.parse(localStorage.getItem("register"));
+
+
+
+// const data_obj = {
+
+//     "first_name": "first_name",
+//     "last_name": "last_name",
+//     "username": "username",
+//     "role": "user",
+//     "email": "email",
+//     "pass": "pass",
+//     "is_active": "false"
+// };
+
+// user_data_arr.push(data_obj);
+
+
+//    localStorage.setItem("register",JSON.stringify(user_data_arr));
+//     user_data_arr = JSON.parse(localStorage.getItem("register"));
+
+
+//     localStorage.setItem("register", JSON.stringify(user_data_arr));
+// console.log(localStorage.getItem("register"));
+// if (localStorage.getItem("register") != []) {
+//     alert("emty");
+   
+//     user_data_arr.push(data_obj);
+//     return user_data_arr;
+// }
+// else {

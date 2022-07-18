@@ -1,11 +1,3 @@
-
-// if (localStorage.key("register") != "register" || localStorage.length == 0) {
-//     localStorage.setItem("register", JSON.stringify("[{}]"));
-//     alert("database not created !");
-// }
-
-
-
 function password_match(pass, confirm_pass) {
     if (pass !== confirm_pass) {
         alert("Passwords did not match");
@@ -16,10 +8,6 @@ function password_match(pass, confirm_pass) {
 }
 function check_if_exist(username, email) {
     let id = JSON.parse(localStorage.getItem("register"));
-    // if (localStorage.key("register") != "register" || localStorage.length == 0) {
-    //     localStorage.setItem("register", JSON.stringify("[]"));
-    //     return true;
-    // }
     for (let i = 0; i < id.length; i++) {
         if (id[i].username == username || id[i].email == email) {
             alert("User Already exist\nPlease Login...");
@@ -78,41 +66,8 @@ function validate_register() {
     alert("Registration succsesfully\nPlease login...")
     return true;
 }
-console.log(localStorage.key("register") != "register");
+// console.log(localStorage.key("register") != "register");
 
-// let user_data_arr = [];
-
-// // user_data_arr = JSON.parse(localStorage.getItem("register"));
-
-
-
-// const data_obj = {
-
-//     "first_name": "first_name",
-//     "last_name": "last_name",
-//     "username": "username",
-//     "role": "user",
-//     "email": "email",
-//     "pass": "pass",
-//     "is_active": "false"
-// };
-
-// user_data_arr.push(data_obj);
-
-
-//    localStorage.setItem("register",JSON.stringify(user_data_arr));
-//     user_data_arr = JSON.parse(localStorage.getItem("register"));
-
-
-//     localStorage.setItem("register", JSON.stringify(user_data_arr));
-// console.log(localStorage.getItem("register"));
-// if (localStorage.getItem("register") != []) {
-//     alert("emty");
-   
-//     user_data_arr.push(data_obj);
-//     return user_data_arr;
-// }
-// else {
 
 
 

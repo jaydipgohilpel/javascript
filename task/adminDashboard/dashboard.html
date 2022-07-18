@@ -47,7 +47,7 @@
 
                                             <p style="float: left; color: green;weight: bold;" class="form-label"
                                                 id="lbl_welcome">Welcome
-                                                <script>document.write(w);</script>
+                                                <script>document.write(loginUser);</script>
                                                 !
                                             </p>
 
@@ -118,12 +118,10 @@
                                     <th>UserName</th>
                                     <th>purchase By</th>
                                 </tr>
-
                                 <script>
-
                                     const data = JSON.parse(localStorage.getItem("bookDb"));
                                     data.forEach(e => {
-                                        if (e.username === w) {
+                                        if (e.username === loginUser) {
                                             if (e.purchaseBy === undefined) {
                                                 e.purchaseBy = "Not purchase Yet";
                                             }
@@ -133,10 +131,11 @@
                                             <td>${e.bookprice}</td>
                                             <td>${e.authername}</td>
                                             <td>${e.username}</td>
-                                             <td>${e.purchaseBy}</td>
-                                            </tr>`);
+                                             <td>${e.purchaseBy}</td >
+                                            </tr > `);
                                         }
                                     });
+                                    // ${e.purchaseBy}
                                 </script>
 
 
@@ -198,7 +197,7 @@
                                     <div class="form-outline">
                                         <select class="form-control" id="username" required disabled>
                                             <option value="admin" title="admin" selected>
-                                                <script>document.write(w);</script>
+                                                <script>document.write(loginUser);</script>
                                             </option>
                                         </select>
                                         <label class="form-label" for="form3Example2">Username</label>

@@ -1,6 +1,6 @@
 // check user is exsist
 let l = localStorage.length;
-let role="";
+let role = "";
 function check_if_exist(username) {
     let id = JSON.parse(localStorage.getItem("register"));
     for (let i = 0; i < id.length; i++) {
@@ -10,19 +10,16 @@ function check_if_exist(username) {
     }
 }
 function check_if_pass_result2(pass, username) {
-
     let id = JSON.parse(localStorage.getItem("register"));
     for (let i = 0; i < id.length; i++) {
         if (id[i].username == username) {
             if (id[i].pass === pass) {
-               
-                // id[i].is_active=push({ is_active: true });
-                id[i].is_active= true;
+                id[i].is_active = true;
                 localStorage.setItem("register", JSON.stringify(id));
-                role=id[i].role;
+                role = id[i].role;
                 return true;
             }
-          
+
         }
     }
 }
@@ -44,15 +41,13 @@ function get_data() {
     else {
         console.log(role);
         alert("login succses");
-        if (role==="admin") {
-           return window.location.replace("adminDashboard/dashboard.html")
+        if (role === "admin") {
+            return window.location.replace("adminDashboard/dashboard.html")
         }
-        else
-        {
-          return  window.location.replace("user/userDashboard.html");
+        else {
+            return window.location.replace("user/userDashboard.html");
         }
-        // console.log(user_data_arr);
-        // return true;
+
     }
 }
 function validate_login() {
@@ -60,25 +55,9 @@ function validate_login() {
     if (user_data_arr === false) {
         return false;
     }
-   
     // window.location.replace("dashboard.html")
     return false;
 }
 
 
 
-
-
-
-// let user_data_arr = [];
-// for (let i = 0; i < 10000000; i++) { //&& localStorage.getItem("login_user") == id[i].username)
-//     const data_obj = {
-//         "username": "username",
-//         "is_active": false
-//     };
-//     user_data_arr = JSON.parse(localStorage.getItem("register:demo"));
-//     user_data_arr.push(data_obj);
-//     localStorage.setItem("register:demo", JSON.stringify(user_data_arr));
-// }
-
-// console.log(localStorage.getItem("register:demo"));
