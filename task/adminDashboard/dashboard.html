@@ -122,9 +122,9 @@
                                     const data = JSON.parse(localStorage.getItem("bookDb"));
                                     data.forEach(e => {
                                         if (e.username === loginUser) {
-                                            if (e.purchaseBy === undefined) {
-                                                e.purchaseBy = "Not purchase Yet";
-                                            }
+                                            // if (e.purchaseBy === undefined) {
+                                            //     e.purchaseBy = "Not purchase Yet";
+                                            // }
                                             document.write(`<tr>
                                             <td>${e.bId}</td>
                                             <td>${e.bookname}</td>

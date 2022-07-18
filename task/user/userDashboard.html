@@ -61,25 +61,23 @@
                                         <div>
                                             <div>
                                                 <span>
-                                                    <select name="choosebook" style="margin-right:10px" id="choosebook"  onChange="selectbook();" class="btn btn-primary btn-block mt-4"
-                                                     >
-                                                        <option value="" class="btn btn-primary btn-block mt-4">Choose Book</option>
-                                
+                                                    <select name="choosebook" style="margin-right:10px" id="choosebook"
+                                                        onChange="selectbook();" class="btn btn-primary btn-block mt-4">
+                                                        <option value="" class="btn btn-primary btn-block mt-4">Choose
+                                                            Book</option>
+
                                                         <script>
 
                                                             const data1 = JSON.parse(localStorage.getItem("bookDb"));
                                                             data1.forEach(e => {
-                                                                if (e.purchaseBy === undefined) {
-                                                                    e.purchaseBy = "Not purchase Yet";
-                                                                }
+                                                                if (e.purchaseBy === undefined) { e.purchaseBy = "Not purchase Yet"; }
                                                                 document.write(`<option  onclick="alert('Purchase')" value="${e.bookname}">${e.bookname}</option>`);
-
                                                             });
-                                                            
+
                                                         </script>
-                                                        
+
                                                     </select>
-                                               
+
                                                     <!-- Submit button -->
                                                     <button type="submit" onclick="logout()"
                                                         class="btn btn-primary btn-block mt-4">
@@ -109,7 +107,7 @@
             </div>
 
         </div>
-        
+
         <!-- display book details -->
         <div class="    text-center text-lg-start my-5">
             <!-- py-5  px-md-5-->
@@ -124,39 +122,44 @@
 
                         <div class="card-body  " style="padding-bottom: 3rem!important;padding-right: 3rem!important;">
                             <h3>Book Details</h3>
-                            <table style="text-align: center;">
-                                <tr>
-                                    <th>Book Id</th>
-                                    <th>Book Name</th>
-                                    <th>Book Price</th>
-                                    <th>Auther Name</th>
-                                    <!-- <th>UserName</th> -->
-                                    <th>purchase By</th>
-                                </tr>
+                            <form>
+                                <table style="text-align: center;">
+                                    <tr>
+                                        <th>Book Id</th>
+                                        <th>Book Name</th>
+                                        <th>Book Price</th>
+                                        <th>Auther Name</th>
+                                        <th>purchase By</th>
+                                        <th>Action</th>
+                                    </tr>
 
-                                <script>
+                                    <script>
 
-                                    const data = JSON.parse(localStorage.getItem("bookDb"));
-                                    data.forEach(e => {
-                                        if (e.purchaseBy.includes(loginUser)) {
-                                            if (e.purchaseBy === undefined) {
-                                                e.purchaseBy = "Not purchase Yet";
-                                            }
-                                            document.write(`<tr>
+                                        const data = JSON.parse(localStorage.getItem("bookDb"));
+                                        data.forEach(e => {
+                                            if (e.purchaseBy.includes(loginUser)) {
+                                                // if (e.purchaseBy === undefined) {
+                                                //     e.purchaseBy = "Not purchase Yet";
+                                                // }
+                                                document.write(`<tr>
                                             <td>${e.bId}</td>
                                             <td>${e.bookname}</td>
                                             <td>${e.bookprice}</td>
                                             <td>${e.authername}</td>
-                                            
                                              <td>${loginUser}[You]</td>
+                                                <td><button type="button" onclick="return deleteBook(${e.bId},'${e.bookname}')"
+                                                        class="btn btn-primary btn-block p-1">
+                                                        Delete
+                                                    </button></td>
                                             </tr>`);
-                                        }
-                                    });
-                                    //<td>${e.username}</td>
-                                </script>
+                                            }
+                                        });
 
+                                    </script>
+                                    <!-- -->
 
-                            </table>
+                                </table>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -204,7 +207,7 @@
                                         <label class="form-label" for="form3Example1">Auther Name</label>
                                     </div>
                                 </div>
-                              
+
                                 <div class="col-md-6 ">
                                     <div class="form-outline">
                                         <select class="form-control" id="username" required disabled>
@@ -227,13 +230,13 @@
                 </div>
 
             </div>
-            
+
         </div>
 
 
 
         <!-- second popup -->
-        
+
 
 
 

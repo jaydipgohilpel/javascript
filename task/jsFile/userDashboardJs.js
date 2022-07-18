@@ -7,21 +7,21 @@ for (let i = 0; i < id.length; i++) {
     if (id[i].is_active) {
         loginUser = id[i].username;
         role = id[i].role;
-        console.log(loginUser);
+        // console.log(loginUser);
     }
 }
 if (!loginUser) {
     alert("Please login first");
     window.location.replace("../login.html");
 }
-if (role === "admin") {
-    console.log("role is admin :", role);
-}
-else {
-    console.log("role is user :", role);
-}
+// if (role === "admin") {
+//     console.log("role is admin :", role);
+// }
+// else {
+//     console.log("role is user :", role);
+// }
 function logout() {
-    for (let i = 0; i < id.length; i++) { 
+    for (let i = 0; i < id.length; i++) {
         if (id[i].is_active) {
             id[i].is_active = false;
             console.log(id);
@@ -54,11 +54,35 @@ function selectbook() {
             if (e.bookname === value) {
                 // check if user already purchased
                 if (!e.purchaseBy.includes(loginUser)) { e.purchaseBy.push(loginUser); } else { alert("This book already purchase"); }
-                localStorage.setItem("bookDb", JSON.stringify(bookData)); 
+                localStorage.setItem("bookDb", JSON.stringify(bookData));
                 window.location.reload();
             }
         });
     }
 }
+
+
+function deleteBook(bookid, bookname) {
+    if (confirm(`Are you sure you want to delete this Book ${bookname}?`)) {
+        const bookData = JSON.parse(localStorage.getItem("bookDb"));
+        bookData.forEach(e => {  
+            if(e.bId===bookid)
+            {
+                e.purchaseBy.forEach(user => {
+                    if (user === loginUser) {
+                        let index = e.purchaseBy.indexOf(loginUser);
+                        e.purchaseBy.splice(index, 1);
+                        localStorage.setItem("bookDb", JSON.stringify(bookData));
+                        window.location.reload();
+                    }
+                });
+            }      
+        });
+
+
+    }
+
+}
+
 
 
