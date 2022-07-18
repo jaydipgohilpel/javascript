@@ -55,7 +55,7 @@ function validate_login() {
     if (user_data_arr === false) {
         return false;
     }
-    // window.location.replace("dashboard.html")
+    
     return false;
 }
 

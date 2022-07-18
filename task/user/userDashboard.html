@@ -51,10 +51,6 @@
                                                 !
                                             </p>
 
-
-
-
-
                                         </div>
                                     </div>
                                     <div class="col-md-8 ">
@@ -65,7 +61,6 @@
                                                         onChange="selectbook();" class="btn btn-primary btn-block mt-4">
                                                         <option value="" class="btn btn-primary btn-block mt-4">Choose
                                                             Book</option>
-
                                                         <script>
 
                                                             const data1 = JSON.parse(localStorage.getItem("bookDb"));
@@ -75,9 +70,7 @@
                                                             });
 
                                                         </script>
-
                                                     </select>
-
                                                     <!-- Submit button -->
                                                     <button type="submit" onclick="logout()"
                                                         class="btn btn-primary btn-block mt-4">
@@ -87,18 +80,12 @@
                                             </div>
                                         </div>
                                     </div>
-
-
-
-
-
                             </form>
                         </div>
                     </div>
                     <div class="row ">
                         <div class="col-12 ">
                             <div class="d-flex text-center align-content-center">
-
                             </div>
                         </div>
                     </div>
@@ -119,7 +106,6 @@
 
                     <div class="card bg-glass">
 
-
                         <div class="card-body  " style="padding-bottom: 3rem!important;padding-right: 3rem!important;">
                             <h3>Book Details</h3>
                             <form>
@@ -138,9 +124,7 @@
                                         const data = JSON.parse(localStorage.getItem("bookDb"));
                                         data.forEach(e => {
                                             if (e.purchaseBy.includes(loginUser)) {
-                                                // if (e.purchaseBy === undefined) {
-                                                //     e.purchaseBy = "Not purchase Yet";
-                                                // }
+                                              
                                                 document.write(`<tr>
                                             <td>${e.bId}</td>
                                             <td>${e.bookname}</td>

@@ -1,7 +1,7 @@
 var loginUser = "";
 var role = "";
 
-// let l = localStorage.length;
+
 let id = JSON.parse(localStorage.getItem("register"));
 for (let i = 0; i < id.length; i++) {
     if (id[i].is_active == true) {
@@ -15,7 +15,7 @@ if (!loginUser) {
 
 }
 function logout() {
-    for (let i = 0; i < id.length; i++) { //&& localStorage.getItem("login_user") == id[i].username)
+    for (let i = 0; i < id.length; i++) { 
         if (id[i].is_active == true) {
             id[i].is_active = false;
             console.log(id);
@@ -23,9 +23,6 @@ function logout() {
 
         }
     }
-    // window.location.replace("login.html");
-    // return false;
-
 }
 function checkBookExist(bName) {
     if(JSON.parse(localStorage.getItem("bookDb")===0))
@@ -51,12 +48,9 @@ function saveBookData() {
    if (ifBookExistResult === false) {
        return false;
    }
-
-
     let le = 0;
         JSON.parse(localStorage.getItem("bookDb"));
         le = JSON.parse(localStorage.getItem("bookDb"));
-      
     let bookData = [];
     const bookObj = {
         "bId":(le.length+1),
@@ -76,6 +70,5 @@ function saveBookData() {
     return true;
 }
 function reset() {
-    // window.location.replace("dashboard.html")
     document.getElementById("bookAddForm").reset();
   }

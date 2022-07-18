@@ -66,7 +66,7 @@ function validate_register() {
     alert("Registration succsesfully\nPlease login...")
     return true;
 }
-// console.log(localStorage.key("register") != "register");
+
 
 
 

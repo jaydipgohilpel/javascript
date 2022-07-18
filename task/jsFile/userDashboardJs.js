@@ -1,25 +1,17 @@
 var loginUser = "";
 var role = "";
-
-// let l = localStorage.length;
 let id = JSON.parse(localStorage.getItem("register"));
 for (let i = 0; i < id.length; i++) {
     if (id[i].is_active) {
         loginUser = id[i].username;
         role = id[i].role;
-        // console.log(loginUser);
+       
     }
 }
 if (!loginUser) {
     alert("Please login first");
     window.location.replace("../login.html");
 }
-// if (role === "admin") {
-//     console.log("role is admin :", role);
-// }
-// else {
-//     console.log("role is user :", role);
-// }
 function logout() {
     for (let i = 0; i < id.length; i++) {
         if (id[i].is_active) {
