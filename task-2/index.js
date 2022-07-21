@@ -1,21 +1,78 @@
 const mainArray = [[]];
 let le = mainArray.length;
+let first="";
+var last="";
+
 function select() {
+    var s0=document.getElementById("s0");
+    var s1=document.getElementById("s1");
+    var s2=document.getElementById("s2");
+    var s3=document.getElementById("s3");
+    var s4=document.getElementById("s4");
+    var s5=document.getElementById("s5");
+    var s6=document.getElementById("s6");
+    var s7=document.getElementById("s7");
+    var s8=document.getElementById("s8");
+    var s9=document.getElementById("s9");
+    var s10=document.getElementById("s10");
+    var s11=document.getElementById("s11");
+    var s12=document.getElementById("s12");
+
+
     var select = document.getElementById('choose');
     var value = select.options[select.selectedIndex].value;
 
-
 // Create an "li" node:
-const node = document.createElement("li");
+const node = document.createElement("span");
+node.style.width = "15px";
+// node.style.border = "1px solid black";
 
 // Create a text node:
-const textnode = document.createTextNode("Water");
+const textnode = document.createTextNode(value);
+
 
 // Append the text node to the "li" node:
 node.appendChild(textnode);
 
+
+
 // Append the "li" node to the list:
-document.getElementById("myList").appendChild(node);
+node.style.display = "inline-block";
+last=value;
+
+s0.appendChild(node);
+console.log(document.getElementById("s0").lastChild.innerHTML);
+
+if(s0.lastChild.innerHTML===value)
+{
+    node.style.display = "block";
+}
+
+
+    const s1node = document.createElement("span");
+    const textnode2 = document.createTextNode(value);
+    s1node.appendChild(textnode2);
+    s1.appendChild(s1node);
+
+// if(s0.lastChild.innerHTML!==value)
+// {
+//     const s1node = document.createElement("div");
+//     const textnode = document.createTextNode(value);
+//     s1node.appendChild(textnode);
+//     s1.appendChild(s1node);
+//     return false;
+// }
+console.log((s0).firstChild.innerHTML);
+
+first=s0.firstChild.innerHTML;
+if(value!=first)
+{
+    node.style.padding = "0px 0px 0px 13px";
+}
+
+
+
+// document.getElementById("myList").appendChild(node);
 
 
     
@@ -25,27 +82,26 @@ document.getElementById("myList").appendChild(node);
 
 
 
-    // let t = "";
-    // let first = "";
-    // first = mainArray[0][0];
-    // for (let i = 0; i < mainArray.length; i++) {
-
-    //     for (let j = mainArray[i].length - 1; j < mainArray[i].length; j++) {
-    //         if (mainArray[i][j] === value) {
-    //             break;
-    //         }    
-    //         if (mainArray[i][j] !== value) {               
-    //             mainArray[i].push(value);              
-    //             display();
-    //             return false;
-    //         }
-    //     }
-    // }
-    // mainArray.push([value]);
-    // display();
-    // return false;
+   return false;
 }
-
+// let t = "";
+// let first = "";
+// first = mainArray[0][0];
+// for (let i = 0; i < mainArray.length; i++) {
+//     for (let j = mainArray[i].length - 1; j < mainArray[i].length; j++) {
+//         if (mainArray[i][j] === value) {
+//             break;
+//         }    
+//         if (mainArray[i][j] !== value) {               
+//             mainArray[i].push(value);              
+//             display();
+//             return false;
+//         }
+//     }
+// }
+// mainArray.push([value]);
+// display();
+// return false;
 
 function display() {
 
@@ -81,7 +137,6 @@ function display() {
 // mainArray[0].push("2");
 // mainArray[0].push("3");
 // mainArray[0].push("f");
-
 // mainArray.push(["4"]);
 // mainArray.push("5");
 // mainArray.push("6");
@@ -90,10 +145,6 @@ function display() {
 // mainArray[1].push("2");
 // mainArray[1].push("3");
 // mainArray[1].push("f");
-
-
-
-
 
 
 // console.log(mainArray);
