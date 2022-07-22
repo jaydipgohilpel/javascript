@@ -1,50 +1,71 @@
-const mainArray = [[]];
-let le = mainArray.length;
-let first="";
-var last="";
-var flag=false;
 var val = '';
 var i =0;
 function select() {
-    var s0=document.getElementById("s0");
-    var s1=document.getElementById("s1");
-    var s2=document.getElementById("s2");
-    var s3=document.getElementById("s3");
-    var s4=document.getElementById("s4");
-    var s5=document.getElementById("s5");
-    var s6=document.getElementById("s6");
-    var s7=document.getElementById("s7");
-    var s8=document.getElementById("s8");
-    var s9=document.getElementById("s9");
-    var s10=document.getElementById("s10");
-    var s11=document.getElementById("s11");
-    var s12=document.getElementById("s12");
-
-
-
-    var select = document.getElementById('choose');
+      var select = document.getElementById('choose');
     var value = select.options[select.selectedIndex].value;
 
     if(value != val) {
         val = value;
         i++;
+        const spannode = document.createElement("span");
+        spannode.setAttribute("id", `s${i}`);
+        let cardBody=document.getElementById("cardbody1");
+        cardBody.appendChild(spannode);
     }
     var element =document.getElementById(`s${i}`);
 
 
-// Create an "li" node:
-const node = document.createElement("div");
-node.style.width = "0px";
-node.style.display="none";
+const s1node = document.createElement("div");
+const textnode2 = document.createTextNode(value);
+s1node.style.width="15px";
+s1node.appendChild(textnode2);
+element.appendChild(s1node); 
 
-// node.style.border = "1px solid black";
+return false;
+}
+
+
+// function display() {
+
+//     let t = "";
+//     let first = "";
+//     let second = "";
+//     for (let i = 0; i < mainArray.length; i++) {
+//         first = mainArray[0][0];
+//         second = mainArray[0][1];
+//         for (let j = 0; j < mainArray[i].length; j++) {
+//             if (i == 0) {
+//                 t += mainArray[i][j];
+//             }
+//             if (i > 0) {
+//                 if (mainArray[i - 1][j] === mainArray[i][j]) {
+//                     t += mainArray[i][j];
+//                     continue;
+//                 }
+//                 if (mainArray[i - 1][j] !== mainArray[i][j]) {
+//                     // t += "&nbsp;&nbsp;" + mainArray[i][j];
+//                     t += "" + mainArray[i][j];
+//                     continue;
+//                 }
+//             }
+
+//         }
+//         t += "<br>";
+//         document.getElementById("output").innerHTML = t;
+//     }
+// }
+
+
+// Create an "div" node:
+// const node = document.createElement("div");
+// node.style.width = "0px";
 
 // Create a text node:
-const textnode = document.createTextNode(value);
+// const textnode    = document.createTextNode(value);
 
 
 // Append the text node to the "li" node:
-node.appendChild(textnode);
+// node.appendChild(textnode);
 
 // Append the "li" node to the list:
 // node.style.display = "inline-block";
@@ -53,12 +74,8 @@ node.appendChild(textnode);
 // console.log((s0).firstChild.innerHTML);
 // first=s0.firstChild.innerHTML;
 
-const s1node = document.createElement("div");
-const textnode2 = document.createTextNode(value);
-s1node.style.width="15px";
-s1node.appendChild(textnode2);
-element.appendChild(s1node); 
 
+// ----------------------------------
 
     // if(value==first)
     // { 
@@ -94,58 +111,7 @@ element.appendChild(s1node);
     //         s4.appendChild(s1node);
             
     //     }
-       
-       
-  
-    
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-   return false;
-}
-
-
-function display() {
-
-    let t = "";
-    let first = "";
-    let second = "";
-    for (let i = 0; i < mainArray.length; i++) {
-        first = mainArray[0][0];
-        second = mainArray[0][1];
-        for (let j = 0; j < mainArray[i].length; j++) {
-            if (i == 0) {
-                t += mainArray[i][j];
-            }
-            if (i > 0) {
-                if (mainArray[i - 1][j] === mainArray[i][j]) {
-                    t += mainArray[i][j];
-                    continue;
-                }
-                if (mainArray[i - 1][j] !== mainArray[i][j]) {
-                    // t += "&nbsp;&nbsp;" + mainArray[i][j];
-                    t += "" + mainArray[i][j];
-                    continue;
-                }
-            }
-
-        }
-        t += "<br>";
-        document.getElementById("output").innerHTML = t;
-    }
-}
+    // --------------------
 
 // mainArray[0].push("1");
 // mainArray[0].push("2");
