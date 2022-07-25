@@ -8,7 +8,7 @@
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Open index2.html",
-            "file": "d:\\company learn\\javascript\\promise.html"
+            "file": "d:\\company learn\\javascript\\task-2\\index.html"
         }
     ]
 }

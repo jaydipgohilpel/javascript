@@ -1,27 +1,27 @@
 var val = '';
 var i =0;
 function select() {
-      var select = document.getElementById('choose');
+    var select = document.getElementById('choose');
     var value = select.options[select.selectedIndex].value;
 
-    if(value != val) {
+    if (value != val) {
         val = value;
         i++;
         const spannode = document.createElement("span");
         spannode.setAttribute("id", `s${i}`);
-        let cardBody=document.getElementById("cardbody1");
+        let cardBody = document.getElementById("cardbody1");
         cardBody.appendChild(spannode);
     }
-    var element =document.getElementById(`s${i}`);
+    var element = document.getElementById(`s${i}`);
 
 
-const s1node = document.createElement("div");
-const textnode2 = document.createTextNode(value);
-s1node.style.width="15px";
-s1node.appendChild(textnode2);
-element.appendChild(s1node); 
+    const s1node = document.createElement("div");
+    const textnode2 = document.createTextNode(value);
+    s1node.style.width = "15px";
+    s1node.appendChild(textnode2);
+    element.appendChild(s1node);
 
-return false;
+    return false;
 }
 
 
